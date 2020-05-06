@@ -1,9 +1,12 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { getRequest } from '../../services/services';
 import User from './User/User';
 import style from './Users.module.css';
+import Toggler from '../Helpers/Toggler';
+import Button from '../Button/Button';
 
-export default class Users extends Component {
+class Users extends Component {
   state = {
     users: [],
   };
@@ -16,14 +19,34 @@ export default class Users extends Component {
 
   render() {
     const { users } = this.state;
+    const { logComponent } = this.props;
     return (
       <>
-        <ul className={style.users}>
-          {users.map(user => (
-            <User user={user} key={user.id} />
-          ))}
-        </ul>
+        <Toggler>
+          {({ isShown, toggling }) => (
+            <>
+              <Button variant="contained" type="button" onClick={toggling}>
+                toggle
+              </Button>
+              {isShown ? (
+                <img
+                  src="https://w7.pngwing.com/pngs/475/281/png-transparent-adidas-logo-adidas-logo-adidas-text-photography-shoes.png"
+                  alt="adidas"
+                  className="adidas"
+                />
+              ) : (
+                <ul className={style.users} onClick={logComponent}>
+                  {users.map(user => (
+                    <User user={user} key={user.id} />
+                  ))}
+                </ul>
+              )}
+            </>
+          )}
+        </Toggler>
       </>
     );
   }
 }
+
+export default Users;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import withBackground from '../../Helpers/withBackground';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Link to="users">Show Users</Link>
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default withBackground(Home);

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import style from './User.module.css';
 import Button from '../../Button/Button';
-import UserAddInfo from '../AdditionalInfo/UserAddInfo';
 import Modal from '../Modal/Modal';
 
 const User = ({ user, location, match }) => {
