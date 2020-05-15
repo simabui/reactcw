@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loader from 'react-loader-spinner';
-import Home from './Paths/Home/Home';
+import Home from './Paths/Home/HomeContainer';
 import NotFound from './Paths/NotFound/NotFound';
 
 const asyncUserInfo = Loadable({
@@ -27,8 +27,9 @@ export default class App extends Component {
     return (
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-around',
+          maxWidth: '960px',
+          textAlign: 'center',
+          margin: '0 auto',
         }}
       >
         <Switch>

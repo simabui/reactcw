@@ -20,10 +20,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  padding: 10px 0;
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -38,11 +34,17 @@ input {
 .block-purple {
   background-color: purple;
   padding: 10px 20px;
+  height: 100vh;
 }
 
 .block-purple a {
   color: #fff;
   text-decoration: none;
+  background-color: #454040;
+  padding: 10px 20px;
+  margin: 10px auto 0 auto;
+  display: block;
+  max-width: 150px;
 }
 
 .adidas {
