@@ -2,10 +2,16 @@ import { connect } from 'react-redux';
 import * as ACTIONS from '../../redux/action';
 import Sidebar from './Sidebar';
 
-const mapDispatchToProps = dispatch => {
+const MSTP = state => {
   return {
-    toggleSidebar: () => dispatch(ACTIONS.toggleSidebar()),
+    isOpen: state.sidebar.isOpen,
   };
 };
 
-export default connect(null, mapDispatchToProps)(Sidebar);
+const mapDispatchToProps = dispatch => {
+  return {
+    close: () => dispatch(ACTIONS.closeSidebar()),
+  };
+};
+
+export default connect(MSTP, mapDispatchToProps)(Sidebar);

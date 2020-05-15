@@ -5,6 +5,10 @@ function sidebarReducer(state = { isOpen: false }, action) {
     case TYPE.toggle: {
       return { isOpen: !state.isOpen };
     }
+
+    case TYPE.close: {
+      return { isOpen: false };
+    }
     default:
       return state;
   }
