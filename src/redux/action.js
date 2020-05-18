@@ -1,16 +1,5 @@
-export const TYPE = {
-  toggle: 'TOGGLE_SIDEBAR',
-  close: 'CLOSE_SIDEBAR',
-};
+import { createAction } from '@reduxjs/toolkit';
 
-export function toggleSidebar() {
-  return {
-    type: TYPE.toggle,
-  };
-}
-
-export function closeSidebar() {
-  return {
-    type: TYPE.close,
-  };
-}
+export const toggleSidebar = createAction('TOGGLE_SIDEBAR');
+export const closeSidebar = createAction('CLOSE_SIDEBAR');
+export const getInput = createAction('GET_INPUT');

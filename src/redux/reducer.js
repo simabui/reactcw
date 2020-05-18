@@ -1,17 +1,19 @@
-import { TYPE } from './action';
+import { createReducer } from '@reduxjs/toolkit';
+import * as ACTION from './action';
 
-function sidebarReducer(state = { isOpen: false }, action) {
-  switch (action.type) {
-    case TYPE.toggle: {
-      return { isOpen: !state.isOpen };
-    }
+const initialState = {
+  isOpen: false,
+};
 
-    case TYPE.close: {
-      return { isOpen: false };
-    }
-    default:
-      return state;
-  }
-}
+export const sidebarReducer = createReducer(initialState, {
+  [ACTION.toggleSidebar]: state => {
+    return { isOpen: !state.isOpen };
+  },
+  [ACTION.closeSidebar]: () => {
+    return { isOpen: false };
+  },
+});
 
-export default sidebarReducer;
+export const inputReducer = createReducer('', {
+  [ACTION.getInput]: (state, action) => action.payload,
+});

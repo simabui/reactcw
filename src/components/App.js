@@ -13,7 +13,7 @@ const asyncUserInfo = Loadable({
   delay: 300,
 });
 const asyncUsers = Loadable({
-  loader: () => import('./Users/Users'),
+  loader: () => import('./Users/UsersContainer'),
   loading() {
     return <Loader type="ThreeDots" color="#000" height={30} width={30} />;
   },

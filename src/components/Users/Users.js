@@ -19,7 +19,7 @@ class Users extends Component {
 
   render() {
     const { users } = this.state;
-    const { logComponent } = this.props;
+    const { logComponent, value } = this.props;
     return (
       <>
         <Toggler>
@@ -35,11 +35,14 @@ class Users extends Component {
                   className="adidas"
                 />
               ) : (
-                <ul className={style.users} onClick={logComponent}>
-                  {users.map(user => (
-                    <User user={user} key={user.id} />
-                  ))}
-                </ul>
+                <>
+                  <h2>{value}</h2>
+                  <ul className={style.users} onClick={logComponent}>
+                    {users.map(user => (
+                      <User user={user} key={user.id} />
+                    ))}
+                  </ul>
+                </>
               )}
             </>
           )}

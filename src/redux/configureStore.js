@@ -1,17 +1,14 @@
-import { combineReducers, createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
-import sidebarReducer from './reducer';
-
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { sidebarReducer, inputReducer } from './reducer';
 // main store
 const rootReducer = combineReducers({
   sidebar: sidebarReducer,
+  input: inputReducer,
 });
 
-// create store
-function configureStore(reducers) {
-  return createStore(reducers, devToolsEnhancer());
-}
-
-const store = configureStore(rootReducer);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;
