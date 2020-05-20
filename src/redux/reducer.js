@@ -17,3 +17,10 @@ export const sidebarReducer = createReducer(initialState, {
 export const inputReducer = createReducer('', {
   [ACTION.getInput]: (state, action) => action.payload,
 });
+
+export const postsReducer = createReducer([], {
+  [ACTION.postsSuc]: (state, action) => [...state, ...action.payload],
+  [ACTION.loadPosts]: (state, action) => [
+    ...state.slice(action.payload, state.length + 20),
+  ],
+});
