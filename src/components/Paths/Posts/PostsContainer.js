@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import * as ACTIONS from '../../../redux/action';
 import Posts from './Posts';
 
-const filtered = state => state.posts.slice(0, 21);
+// const filtered = state => state.posts.allPosts.slice(0, 6);
+const filtered = state => state.posts.showedPosts;
 
 const MSTP = state => {
   return {
@@ -13,7 +14,6 @@ const MSTP = state => {
 const MDTP = dispatch => {
   return {
     fetchPosts: () => dispatch(ACTIONS.fetchData()),
-    loadPosts: index => dispatch(ACTIONS.loadPosts(index)),
   };
 };
 

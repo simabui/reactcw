@@ -1,7 +1,7 @@
 import { combineReducers, applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import ReduxThunk from 'redux-thunk';
-import { sidebarReducer, inputReducer, postsReducer } from './reducer';
+import { sidebarReducer, inputReducer, postsReducer, showedPostsReducer } from './reducer';
 
 const middleware = [ReduxThunk];
 const enhancer = applyMiddleware(...middleware);
