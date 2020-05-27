@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import * as ACTIONS from '../../../redux/action';
 import Posts from './Posts';
+import { filtered, getFilteredPosts, getFilteredPostsMemoized } from '../../../redux/selector';
 
-// const filtered = state => state.posts.allPosts.slice(0, 6);
-const filtered = state => state.posts.showedPosts;
-
-const MSTP = state => {
+const MSTP = (state, props) => {
+  const { title } = props;
+  const posts = filtered(state);
+  const filteredPosts = getFilteredPosts(posts, title);
+  // reselect
+  const titleFilter = getFilteredPostsMemoized(state);
+  const filteredTitle = titleFilter(title);
   return {
-    posts: filtered(state),
+    filteredPosts: filteredTitle,
   };
 };
 

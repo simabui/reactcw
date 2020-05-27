@@ -27,6 +27,14 @@ const asyncPosts = Loadable({
   delay: 300,
 });
 
+const asyncSearchPosts = Loadable({
+  loader: () => import('./Paths/SearchPosts/SearchPosts'),
+  loading() {
+    return <Loader type="ThreeDots" color="#000" height={30} width={30} />;
+  },
+  delay: 300,
+});
+
 export default class App extends Component {
   state = {};
 
@@ -43,6 +51,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/users" component={asyncUsers} />
           <Route exact path="/posts" component={asyncPosts} />
+          <Route exact path="/searchposts" component={asyncSearchPosts} />
           <Route path="/users/:id" component={asyncUserInfo} />
           <Route component={NotFound} />
         </Switch>

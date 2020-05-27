@@ -1,6 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
 import * as ACTION from './action';
-import { array } from 'prop-types';
 
 const initialState = {
   isOpen: false,

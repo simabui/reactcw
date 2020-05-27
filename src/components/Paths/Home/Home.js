@@ -15,6 +15,7 @@ const Home = ({ toggleSidebar, getInput, value }) => {
       <Sidebar />
       <Link to="users">Show Users</Link>
       <Link to="posts">Show Posts</Link>
+      <Link to="searchposts">Search Posts</Link>
       <div className={style.home__button}>
         <Button variant="contained" onClick={toggleSidebar}>
           Toggle menu

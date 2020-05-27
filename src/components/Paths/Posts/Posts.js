@@ -2,15 +2,14 @@ import React, { useEffect } from 'react';
 import Post from './Post';
 import Pagination from '../../Pagination/PaginationContainer';
 
-export default function Posts({ fetchPosts, posts, loadPosts }) {
+export default function Posts({ fetchPosts, filteredPosts }) {
   useEffect(() => {
     fetchPosts();
   }, []);
-
   return (
     <>
-      <ul style={{ padding: '0', height: '400px' }}>
-        {posts.map(post => (
+      <ul style={{ paddingBottom: '10px', height: 'auto' }}>
+        {filteredPosts.map(post => (
           <li key={post.id}>
             <Post post={post} />
           </li>
