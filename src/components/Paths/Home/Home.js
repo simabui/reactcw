@@ -5,6 +5,7 @@ import Button from '../../Button/Button';
 import Sidebar from '../../Sidebar/SidebarContainer';
 import style from './Home.module.css';
 import Input from '../../Input/Input';
+import ModalPortal from '../../Modal/ModalPortal';
 
 const Home = ({ toggleSidebar, getInput, value }) => {
   const handleChange = ({ target: { value } }) => {
@@ -22,6 +23,12 @@ const Home = ({ toggleSidebar, getInput, value }) => {
         </Button>
         <Input type="input" value={value} onChange={handleChange} />
       </div>
+      <div id="test"></div>
+      <ModalPortal>
+        <div>
+          <h1>TEST</h1>
+        </div>
+      </ModalPortal>
     </>
   );
 };
