@@ -1,14 +1,15 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import style from './User.module.css';
 import Button from '../../Button/Button';
-import UserAddInfo from '../AdditionalInfo/UserAddInfo';
+import { store } from '../../../store/store';
 import Modal from '../Modal/Modal';
 
 const User = ({ user, location, match }) => {
   const [isShownInfo, toggleShown] = useState(false);
   const [isShownModal, toggleModal] = useState(false);
+  const { theme, dispatchTheme } = useContext(store);
 
   const handleShown = () => {
     toggleShown(isShown => !isShown);
@@ -16,6 +17,9 @@ const User = ({ user, location, match }) => {
 
   const handleModal = () => {
     toggleModal(isShownModal => !isShownModal);
+  };
+  const changeTheme = actionType => {
+    dispatchTheme(actionType);
   };
 
   return (
@@ -57,7 +61,16 @@ const User = ({ user, location, match }) => {
             </div>
           </div>
         </div>
-        {/* {isShownInfo && <UserAddInfo company={user.company} />} */}
+        <Button
+          type="button"
+          inlineStyle={{
+            background: theme.background,
+            color: theme.foreground,
+          }}
+          onClick={() => changeTheme('light theme')}
+        >
+          Я стилизован темой из контекста!
+        </Button>
         {isShownModal && <Modal phone={user.phone} onClose={handleModal} />}
       </li>
     </>

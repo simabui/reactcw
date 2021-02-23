@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getRequest } from '../../services/services';
 import User from './User/User';
 import style from './Users.module.css';
 
-export default class Users extends Component {
-  state = {
-    users: [],
-  };
+function Users() {
+  const [users, setUsers] = useState([]);
 
-  componentDidMount = async () => {
-    const { data } = await getRequest();
+  useEffect(() => {
+    async function fetchUsers() {
+      const { data } = await getRequest();
+      setUsers(data);
+    }
+    fetchUsers();
+  }, []);
 
-    this.setState({ users: data });
-  };
-
-  render() {
-    const { users } = this.state;
-    return (
-      <>
-        <ul className={style.users}>
-          {users.map(user => (
-            <User user={user} key={user.id} />
-          ))}
-        </ul>
-      </>
-    );
-  }
+  return (
+    <>
+      <ul className={style.users}>
+        {users.map(user => (
+          <User user={user} key={user.id} />
+        ))}
+      </ul>
+    </>
+  );
 }
+
+export default Users;

@@ -16,6 +16,7 @@ export default class Button extends Component {
       type,
       isLoading,
       onClick,
+      inlineStyle,
     } = this.props;
     const styleBtn = `${style.button} ${style[color]}
      ${disableElevation && style.disableElevation} `;
@@ -27,6 +28,7 @@ export default class Button extends Component {
           type={type}
           disabled={disabled}
           onClick={onClick}
+          style={inlineStyle}
         >
           {isLoading ? (
             <Loader
